@@ -69,8 +69,31 @@ const employees = _.times(20, function (n) {
   };
 });
 
+const conversations = _.times(20, function (n) {
+  return {
+    id: faker.random.uuid(),
+    description: faker.commerce.productDescription(),
+    raisedBy: faker.helpers.randomize(users.map((user) => user.id)),
+    projectId: faker.helpers.randomize(projects.map((project) => project.id)),
+  };
+});
+
+const tasks = _.times(20, function (n) {
+  return {
+    id: faker.random.uuid(),
+    name: "Catch up call with Amy",
+    status: faker.helpers.randomize(["Active", "Inactive"]),
+    priority: faker.helpers.randomize(["High", "Low", "Medium"]),
+    dueDate: faker.date.future(),
+    assignedTo: faker.helpers.randomize(users.map((user) => user.id)),
+    projectId: faker.helpers.randomize(projects.map((project) => project.id)),
+  };
+});
+
 module.exports = {
   users,
   projects,
   employees,
+  tasks,
+  conversations,
 };
