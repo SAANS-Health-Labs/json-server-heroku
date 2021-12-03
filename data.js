@@ -54,7 +54,7 @@ const employees = _.times(20, function (n) {
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
     projectId: project_id,
-    dob: faker.date.future(),
+    dob: faker.date.past(),
     gender: faker.helpers.randomize(["Male", "Female", "Other"]),
     email: faker.internet.email(),
     phone: faker.phone.phoneNumber(),
@@ -77,7 +77,7 @@ const employees = _.times(20, function (n) {
       "Employee and Family",
       "Employee and Spouse",
     ]),
-    planStartDate: faker.date.future(),
+    planStartDate: faker.date.past(),
     planEndDate: faker.date.future(),
     parentId: faker.random.uuid(),
   };
